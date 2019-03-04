@@ -34,12 +34,4 @@ class _PollsPage extends State<PollsPage>{
     //TODO
     return null;
   }
-
-  /*
-   * Build and return all the polls create by the user
-   */
-  Widget buildUserPolls(){
-    //TODO return all user create polls
-    return null;
-  }
 }
