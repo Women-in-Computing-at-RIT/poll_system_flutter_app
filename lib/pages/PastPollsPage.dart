@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:poll_system_flutter_app/classes/Database.dart';
 import 'package:poll_system_flutter_app/classes/Poll.dart';
 
 class PastPollsPage extends StatefulWidget{
-  PastPollsPage({Key key, this.title}) : super(key: key);
+  PastPollsPage({Key key, this.title, this.database}) : super(key: key);
 
   final String title;
+  final Database database;
 
   @override
   _PastPollsPage createState() => _PastPollsPage();

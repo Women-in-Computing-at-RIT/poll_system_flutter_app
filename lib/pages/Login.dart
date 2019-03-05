@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:poll_system_flutter_app/classes/Database.dart';
 
 class LoginPage extends StatefulWidget{
+  Database _database;
   LoginPage({Key key, this.title}) : super(key: key);
 
   final String title;
