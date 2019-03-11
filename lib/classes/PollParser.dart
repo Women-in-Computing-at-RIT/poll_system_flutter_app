@@ -83,4 +83,9 @@ class PollParser{
     //TODO
     return null;
   }
+
+  /// Call the api to create a new pending poll
+  void createPoll(String name, bool canAddOption, bool multplieAllowed, List<String> options){
+    //TODO
+  }
 }
