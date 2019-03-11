@@ -14,6 +14,10 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPage extends State<LoginPage>{
+  // Hold and update username and password based on user input
+  String _username = "";
+  String _password = "";
+
   /// Attempt Login with LoginHandler
   ///   If login is successful send to home page (CurrentPollsPage)
   void login(){
