@@ -1,27 +1,27 @@
-import 'package:poll_system_flutter_app/classes/Poll.dart';
-
 class User{
   String _name; // user name
+  int _id; //user id
   bool _isAdmin; // check if use is admin
-  List<Poll> _polls; //polls!
 
 
-  User(String name, bool isAdmin){
+  User(String name, int id, bool isAdmin){
     //TODO
   }
 
-  /*
-   * return a list of the current polls
-   */
-  List<Poll> getPolls(){
+  /// Return name of poll
+  String getName(){
     //TODO
     return null;
   }
 
-  /*
-   * Return name of poll
-   */
-  String getName(){
+  /// Return user id
+  int getId(){
+    //TODO
+    return null;
+  }
+
+  /// Return isAdmin
+  bool isAdmin(){
     //TODO
     return null;
   }
