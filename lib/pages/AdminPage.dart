@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:poll_system_flutter_app/classes/Database.dart';
 import 'package:poll_system_flutter_app/classes/Poll.dart';
 
 class AdminPage extends StatefulWidget {
-  Database _database;
   List<Poll> _pendingPolls;
 
   @override
@@ -18,8 +16,8 @@ class _AdminPage extends State<AdminPage> {
     return null;
   }
 
-  List<Poll> getPendingPolls() {
-    //TODO: This
+  Widget getPendingPolls() {
+    //TODO: get pendingPolls as a widget from PollWidget
     return null;
   }
 
@@ -27,13 +25,4 @@ class _AdminPage extends State<AdminPage> {
     //TODO: Implement this method
   }
 
-  Widget buildAllPolls() {
-    //TODO: build polls
-    return null;
-  }
-
-  Widget buildPoll(Poll) {
-    //TODO: build poll
-    return null;
-  }
 }

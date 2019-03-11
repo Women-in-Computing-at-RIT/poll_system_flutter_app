@@ -1,7 +1,7 @@
-class Database {
+class ApiAccess {
   //TODO
 
-  Database(){
+  ApiAccess(){
     //TODO
   }
 }

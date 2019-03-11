@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:poll_system_flutter_app/classes/Database.dart';
+import 'package:poll_system_flutter_app/classes/ApiAccess.dart';
 
 class LoginPage extends StatefulWidget{
-  Database _database;
+  ApiAccess _api;
   LoginPage({Key key, this.title}) : super(key: key);
 
   final String title;

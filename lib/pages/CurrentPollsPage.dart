@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:poll_system_flutter_app/classes/Database.dart';
 
 class PollsPage extends StatefulWidget{
-  PollsPage({Key key, this.title, this.database}) : super(key: key);
+  PollsPage({Key key, this.title }) : super(key: key);
 
   final String title;
-  final Database database;
 
   @override
   _PollsPage createState() => _PollsPage();
