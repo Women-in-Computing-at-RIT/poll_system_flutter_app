@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:poll_system_flutter_app/classes/ApiAccess.dart';
+import 'package:poll_system_flutter_app/classes/LoginHandler.dart';
 
 class LoginPage extends StatefulWidget{
-  ApiAccess _api;
+  LoginHandler loginHandler = new LoginHandler();
+
+  /// Create LoginPage with key and title
   LoginPage({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -12,10 +14,14 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPage extends State<LoginPage>{
+  /// Attempt Login with LoginHandler
+  ///   If login is successful send to home page (CurrentPollsPage)
   void login(){
-    //TODO attempt login
+    //TODO attempt login with login handler
   }
 
+  /// Build widgets for user to login
+  ///   including inputs for username and password and a login button
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
