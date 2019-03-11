@@ -12,7 +12,7 @@ class PollWidgets{
   }
 
   /// Create a poll the user can vote on
-  Widget buildVoteablePoll(){
+  Widget _buildVoteablePoll(){
     //TODO
     return null;
   }
@@ -25,7 +25,7 @@ class PollWidgets{
   }
 
   /// Create a view only poll with the options sorted based on votes
-  Widget buildViewOnlyPoll(){
+  Widget _buildViewOnlyPoll(){
     //TODO
     return null;
   }
@@ -39,7 +39,7 @@ class PollWidgets{
 
   /// Build an editable poll
   ///   Editable has an option to edit and send user to new page to edit
-  Widget buildUserPoll(){
+  Widget _buildUserPoll(){
     //TODO
     return null;
   }
@@ -52,7 +52,7 @@ class PollWidgets{
   }
 
   /// Create a poll for an admin to approve or reject
-  Widget buildPendingPoll(){
+  Widget _buildPendingPoll(){
     //TODO
     return null;
   }
