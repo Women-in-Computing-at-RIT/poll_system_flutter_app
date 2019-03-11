@@ -26,8 +26,13 @@ class _CreatePollPage extends State<CreatePollPage> {
     return null;
   }
 
-  /// Call pollParser to create a new option
-  void acceptPoll() {
+  /// Submit poll to pollParser
+  void submitPoll() {
+    //TODO
+  }
+
+  /// Validate inputs and check that everything has been filled out
+  void validateInputs(){
     //TODO
   }
 
