@@ -6,6 +6,10 @@ class AdminPage extends StatefulWidget {
   PollParser _pollParser;
   PollWidgets _pollWidget;
 
+  AdminPage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
   @override
   _AdminPage createState() => _AdminPage();
 }
