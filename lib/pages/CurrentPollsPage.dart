@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:poll_system_flutter_app/widget_creators/PollWidgets.dart';
 
-class PollsPage extends StatefulWidget{
-  PollsPage({Key key, this.title }) : super(key: key);
+class CurrentPollsPage extends StatefulWidget{
+  PollWidgets _pollWidget;
+
+  CurrentPollsPage({Key key, this.title }) : super(key: key);
 
   final String title;
 
   @override
-  _PollsPage createState() => _PollsPage();
+  _CurrentPollsPage createState() => _CurrentPollsPage();
 }
 
-class _PollsPage extends State<PollsPage>{
+class _CurrentPollsPage extends State<CurrentPollsPage>{
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +21,8 @@ class _PollsPage extends State<PollsPage>{
     return null;
   }
 
-  /*
-   * Build and return all the polls
-   * build the list 10 items at a time
-   */
-  Widget buildAllPolls(){
-    //TODO return All Polls Tab
-    return null;
-  }
-
-  /*
-   *
-   */
-  Widget buildVotablePoll(){
+  /// Get the built Current Polls from pollWidget
+  Widget getCurrentPolls(){
     //TODO
     return null;
   }
