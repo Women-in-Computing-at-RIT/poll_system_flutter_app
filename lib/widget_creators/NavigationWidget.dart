@@ -6,7 +6,7 @@ class NavigationWidget{
   ButtonBar _navBar;
 
   bool _userIsAdmin;
-  
+
   NavigationWidget(bool userIsAdmin){
     //TODO
   }
