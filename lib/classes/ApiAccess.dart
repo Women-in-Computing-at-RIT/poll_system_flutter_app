@@ -1,8 +1,10 @@
-import 'package:poll_system_flutter_app/classes/Poll.dart';
-import 'package:poll_system_flutter_app/classes/User.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 
 class ApiAccess {
   //TODO
+  String path;
+  Database database;
 
   ApiAccess(){
     //TODO
@@ -12,27 +14,27 @@ class ApiAccess {
     //TODO
   }
 
-  User login(String username, String password){
+  Map<String, dynamic> login(String username, String password){
     //TODO
     return null;
   }
 
-  List<Poll> getAllCurrentPolls(){
+  List<Map<String, dynamic>> getAllCurrentPolls(){
     //TODO
     return null;
   }
 
-  List<Poll> getAllPastPolls(){
+  List<Map<String, dynamic>> getAllPastPolls(){
     //TODO
     return null;
   }
 
-  List<Poll> getAllPendingPolls(){
+  List<Map<String, dynamic>> getAllPendingPolls(){
     //TODO
     return null;
   }
 
-  List<Poll> getPollsForUser(String userid){
+  List<Map<String, dynamic>> getPollsForUser(String userid){
     //TODO
     return null;
   }
