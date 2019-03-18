@@ -11,7 +11,7 @@ class LoginHandler{
   /// Call login method from api and parse returned Map<String, dynamic>
   ///   into a User object
   User login(String username, String password){
-    //TODO return user based on ApiAccess login
-    return null;
+    var data = _api.login(username, password);
+    return new User(data['username'], data['id'], data['isAdmin']);
   }
 }
