@@ -18,13 +18,14 @@ class _PastPollsPage extends State<PastPollsPage>{
   Widget build(BuildContext context) {
     // TODO: implement build
     // Create inputs to take in username/email and password
+
     return null;
   }
 
   /// Get all the past polls built by the PollWidgets
   Widget getPastPolls(){
     //TODO return
-    return null;
+    return PollWidgets;
   }
 
 }

@@ -36,8 +36,6 @@ class ButtonWidgets{
   ButtonBar buildButtonBar(List<Widget> buttons){
     return new ButtonBar(alignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        //put buttons here
-      ],);
+      children: buttons);
   }
 }
