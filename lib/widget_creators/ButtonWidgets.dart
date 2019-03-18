@@ -7,28 +7,37 @@ class ButtonWidgets{
   /// Create a return a RaisedButton with the given text and function
   ///   using the appropriate theme from ButtonThemes
   RaisedButton buildRaisedButton(String text, Function func){
-    //TODO
-    return null;
+    return new RaisedButton(
+        child: Text(text),
+        elevation: 4.0,
+        disabledElevation: 0.0, //elevation of button when pressed
+        onPressed: func, //do something
+         );
   }
 
   /// Create a return a FlatButton with the given text and function
   ///   using the appropriate theme from ButtonThemes
   FlatButton buildFlatButton(String text, Function func){
-    //TODO
-    return null;
+    return new FlatButton(
+        onPressed: func,
+        child: Text(text));
   }
 
   /// Create a return a IconButton with the given text and function
   ///   using the appropriate theme from ButtonThemes
   IconButton buildIconButton(String text, Function func){
-    //TODO
-    return null;
+    return new IconButton(
+        icon: Icon(Icons.check, semanticLabel: text),
+        onPressed: func);
   }
 
   /// Create a return a ButtonBar with the given list of icon buttons
   ///   using the appropriate theme from ButtonThemes
   ButtonBar buildButtonBar(List<Widget> buttons){
-    //TODO
-    return null;
+    return new ButtonBar(alignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.max,
+      children: <Widget>[
+        //put buttons here
+      ],);
   }
 }
