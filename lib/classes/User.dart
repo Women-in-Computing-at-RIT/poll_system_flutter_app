@@ -5,24 +5,23 @@ class User{
 
 
   User(String name, int id, bool isAdmin){
-    //TODO
+    _name = name;
+    _id = id;
+    _isAdmin = isAdmin;
   }
 
   /// Return name of poll
   String getName(){
-    //TODO
-    return null;
+    return _name;
   }
 
   /// Return user id
   int getId(){
-    //TODO
-    return null;
+    return _id;
   }
 
   /// Return isAdmin
   bool isAdmin(){
-    //TODO
-    return null;
+    return _isAdmin;
   }
 }
