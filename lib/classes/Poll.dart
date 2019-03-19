@@ -17,15 +17,15 @@ class Poll {
   Map<int, List<int>> _votes;
 
   Poll(String name, String owner, Map<String, int> options){
-    //TODO
+    _name = name;
+    _owner = owner;
   }
 
   /// *** Getters *** ///
 
   /// Get name of poll
   String getName(){
-    //TODO
-    return null;
+    return _name;
   }
 
   /// Get Map of Options
@@ -43,13 +43,12 @@ class Poll {
   /// Return if users other than owner can add options
   bool canAddOption(){
     //TODO
-    return null;
+    return _canAddOptions;
   }
 
   /// Return is users can vote for multiple options
   bool isMultipleSelect(){
-    //TODO
-    return null;
+    return _isMultipleSelect;
   }
 
   /// Get votes for option with optId
@@ -78,7 +77,13 @@ class Poll {
   /// Check that user can add option
   ///   If yes, add option to the map
   bool addOption(String option){
-    //TODO
-    return null;
+    if (canAddOption) {
+      var currOptions = getOptions();
+      if (!currOptions.containsKey(option)) {
+        currOptions[option] = 0;
+        return true;
+      }
+    }
+    return false;
   }
 }
