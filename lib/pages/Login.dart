@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:poll_system_flutter_app/classes/LoginHandler.dart';
 
 class LoginPage extends StatefulWidget{
-  LoginHandler loginHandler = new LoginHandler();
 
   /// Create LoginPage with key and title
   LoginPage({Key key, this.title}) : super(key: key);
@@ -20,7 +19,8 @@ class _LoginPage extends State<LoginPage>{
   /// Attempt Login with LoginHandler
   ///   If login is successful send to home page (CurrentPollsPage)
   void login(){
-    loginHandler.
+    LoginHandler loginHandler = new LoginHandler();
+    loginHandler.login(_username, _password);
     //TODO attempt login with login handler
   }
 
