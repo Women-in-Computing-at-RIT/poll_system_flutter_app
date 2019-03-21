@@ -25,11 +25,11 @@ class PollOption{
 
   /// Image for the option
   String getImagePath(){
-    return _getImagePath;
+    return _imagePath;
   }
 
   /// Get option id
-  String getId(){
+  int getId(){
     return _id;
   }
 
@@ -40,7 +40,6 @@ class PollOption{
 
   /// Add a vote
   void voteFor(){
-    var vote = getVotes();
-    vote += 1;
+    _tally += 1;
   }
 }

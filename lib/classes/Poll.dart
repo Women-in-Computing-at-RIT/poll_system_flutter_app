@@ -1,14 +1,15 @@
 import 'dart:core';
-import 'dart:core';
 
-import 'package:poll_system_flutter_app/classes/PollOption.dart';
+import 'PollOption.dart';
+
 
 class Poll {
   String _name; //poll name
   int _id; //poll id
-  int _owner; //owner of the poll
+  String _owner; //owner of the poll
   bool _canAddOptions;
   bool _isMultipleSelect;
+  bool _isApproved;
 
   // map of the options for the poll with the poll id as a key
   Map<int, PollOption> _options;
@@ -19,6 +20,7 @@ class Poll {
   Poll(String name, String owner, Map<String, int> options){
     _name = name;
     _owner = owner;
+    _isApproved = false;
   }
 
   /// *** Getters *** ///
@@ -28,10 +30,14 @@ class Poll {
     return _name;
   }
 
+  /// Get the owner of the poll
+  String getOwner(){
+    return _owner;
+  }
+
   /// Get Map of Options
   Map<int, PollOption> getOptions(){
-    //TODO
-    return null;
+    return _options;
   }
 
   /// Get top option for poll
@@ -42,13 +48,17 @@ class Poll {
 
   /// Return if users other than owner can add options
   bool canAddOption(){
-    //TODO
     return _canAddOptions;
   }
 
   /// Return is users can vote for multiple options
   bool isMultipleSelect(){
     return _isMultipleSelect;
+  }
+
+  /// Return if it is approved or not
+  bool isApproved(){
+    return _isApproved;
   }
 
   /// Get votes for option with optId
@@ -61,7 +71,9 @@ class Poll {
 
   /// Update poll with given approval
   void approvePoll(bool approval){
-    //TODO
+    if (!isApproved()){
+      _isApproved = true;
+    }
   }
 
   /// Add a vote to the list of selected option(s)
@@ -77,7 +89,7 @@ class Poll {
   /// Check that user can add option
   ///   If yes, add option to the map
   bool addOption(String option){
-    if (canAddOption) {
+    if (canAddOption()) {
       var currOptions = getOptions();
       if (!currOptions.containsKey(option)) {
         currOptions[option] = 0;
