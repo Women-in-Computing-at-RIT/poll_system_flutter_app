@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poll_system_flutter_app/classes/LoginHandler.dart';
+import 'package:poll_system_flutter_app/widget_creators/ButtonBuilder.dart';
+import 'package:poll_system_flutter_app/widget_creators/InputWidgets.dart';
 
 class LoginPage extends StatefulWidget{
 
@@ -13,6 +15,8 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPage extends State<LoginPage>{
+  InputWidgets inputWidgets = new InputWidgets();
+  ButtonBuilder buttonBuilder = new ButtonBuilder();
   // Hold and update username and password based on user input
   String _username = "";
   String _password = "";
@@ -31,30 +35,11 @@ class _LoginPage extends State<LoginPage>{
 
     final icon = Image.asset('../media/WicHi_purple_transparent.png');
 
-    final email = TextFormField( // build email field
-      keyboardType: TextInputType.emailAddress,
-      autofocus: false,
-      initialValue: 'username',
-        decoration: InputDecoration(
-            hintText: 'Email',
-            contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(32.0))
-        )
-    );
+    final email = inputWidgets.buildTextInput("Username", false);
 
-    final password = TextFormField( // build password field
-      keyboardType: TextInputType.emailAddress,
-      autofocus: false,
-      initialValue: 'password',
-      obscureText: true,
-        decoration: InputDecoration(
-          hintText: 'Password',
-          contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(32.0))
-      )
-    );
+    final password = inputWidgets.buildTextInput("Password", true);
+
+    final login = buttonBuilder.buildRaisedButtons(new Map());
 
     final hint = Text(
       'To create an account you must go through ritwic.slack.com',

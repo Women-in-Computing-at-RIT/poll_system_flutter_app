@@ -6,9 +6,15 @@ class InputWidgets{
   InputThemes _inputThemes = new InputThemes();
 
   /// Build a text input with the given placeholder string
-  TextInput buildTextInput(String placeholder){
-    //TODO
-    return null;
+  TextFormField buildTextInput(String title, bool isPassword){
+    TextFormField textInput = new TextFormField(
+        obscureText: isPassword,
+        decoration: new InputDecoration(
+            labelText: title
+        )
+    );
+
+    return textInput;
   }
 
   /// Build a checkbox with the given text
