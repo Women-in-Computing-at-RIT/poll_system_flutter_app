@@ -6,40 +6,40 @@ class PollOption{
 
   /// Constructor with text option
   PollOption.withText(int id, int tally, String text){
-    //TODO
+    _id = id;
+    _tally = tally;
+    _text = text;
   }
 
   /// Constructor with image path
   PollOption.withImage(int id, int tally, String imagePath){
-    //TODO
+    _id = id;
+    _tally = tally;
+    _imagePath = imagePath;
   }
 
   /// Text for the option
   String getText(){
-    //TODO
-    return null;
+    return _text;
   }
 
   /// Image for the option
   String getImagePath(){
-    //TODO
-    return null;
+    return _imagePath;
   }
 
   /// Get option id
-  String getId(){
-    //TODO
-    return null;
+  int getId(){
+    return _id;
   }
 
   /// Get number of current votes
   int getVotes(){
-    //TODO
-    return null;
+    return _tally;
   }
 
   /// Add a vote
   void voteFor(){
-    //TODO
+    _tally += 1;
   }
 }
