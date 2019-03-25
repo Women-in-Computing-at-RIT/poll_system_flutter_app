@@ -92,7 +92,7 @@ class Poll {
     if (canAddOption()) {
       var currOptions = getOptions();
       if (!currOptions.containsKey(option)) {
-        currOptions[option] = 0;
+//        currOptions[option] = 0;
         return true;
       }
     }
