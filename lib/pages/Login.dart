@@ -39,7 +39,8 @@ class _LoginPage extends State<LoginPage>{
 
     final password = inputWidgets.buildTextInput("Password", true);
 
-    final login = buttonBuilder.buildRaisedButtons(new Map());
+    //TODO pass in login function
+    final login = buttonBuilder.buildRaisedButton("Login", null);
 
     final hint = Text(
       'To create an account you must go through ritwic.slack.com',
