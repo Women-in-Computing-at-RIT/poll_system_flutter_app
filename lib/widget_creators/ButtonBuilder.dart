@@ -6,10 +6,24 @@ class ButtonBuilder{
     ButtonThemes _buttonThemes = new ButtonThemes();
     ButtonWidgets _buttonWidgets = new ButtonWidgets();
 
+    /// Create and return Widget containing one raised button
+    ///   using the appropriate theme from ButtonThemes
+    Widget buildRaisedButton(String text, Function function){
+      //TODO
+      return null;
+    }
+
     /// Create and return Widget containing raised buttons
     ///   created using the given map text and functions
     ///   with the appropriate theme from ButtonThemes
     Widget buildRaisedButtons(Map<String, Function> buttons){
+      //TODO
+      return null;
+    }
+
+    /// Create and return Widget containing one flat button
+    ///   using the appropriate theme from ButtonThemes
+    Widget buildFlatButton(String text, Function function){
       //TODO
       return null;
     }
