@@ -25,7 +25,7 @@ class _PastPollsPage extends State<PastPollsPage>{
   /// Get all the past polls built by the PollWidgets
   Widget getPastPolls(){
     //TODO return
-    return PollWidgets;
+    return null;
   }
 
 }
