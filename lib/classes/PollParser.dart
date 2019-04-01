@@ -88,4 +88,11 @@ class PollParser{
   void createPoll(String name, bool canAddOption, bool multplieAllowed, List<String> options){
     //TODO
   }
+
+
+  /// Call apiAccess to update poll with given id
+  ///   isApproved    poll is approved by admin
+  void approvePoll(bool isApproved, int pollId){
+    //TODO
+  }
 }
