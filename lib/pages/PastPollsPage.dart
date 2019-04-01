@@ -4,28 +4,33 @@ import 'package:poll_system_flutter_app/widget_creators/PollWidgets.dart';
 class PastPollsPage extends StatefulWidget{
   PollWidgets _pollWidget;
 
-  PastPollsPage({Key key, this.title}) : super(key: key);
+  PastPollsPage({Key key, this.title, this.userid}) : super(key: key);
 
   final String title;
+  final int userid;
 
   @override
-  _PastPollsPage createState() => _PastPollsPage();
+  _PastPollsPage createState() => _PastPollsPage(userid);
 }
 
 class _PastPollsPage extends State<PastPollsPage>{
-
+  PollWidgets _pollWidget;
+  _PastPollsPage(int userid) {
+    _pollWidget = new PollWidgets(userid);
+  }
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    return Builder(
+      builder: (context) => Center(
+          child: new Column(
+            children: <Widget>[
+              Title(color: null, child: Text("Past Polls")),
+              _pollWidget.buildPastPoll()
+            ],
+          ),
+      )
     // Create inputs to take in username/email and password
-
-    return null;
-  }
-
-  /// Get all the past polls built by the PollWidgets
-  Widget getPastPolls(){
-    //TODO return
-    return null;
+    );
   }
 
 }
