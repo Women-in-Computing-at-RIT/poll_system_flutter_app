@@ -9,30 +9,32 @@ class ButtonBuilder{
     /// Create and return Widget containing one raised button
     ///   using the appropriate theme from ButtonThemes
     Widget buildRaisedButton(String text, Function function){
-      //TODO
-      return null;
+      return new ButtonWidgets().buildRaisedButton(text, function);
     }
 
     /// Create and return Widget containing raised buttons
     ///   created using the given map text and functions
     ///   with the appropriate theme from ButtonThemes
     Widget buildRaisedButtons(Map<String, Function> buttons){
-      //TODO
+      //TODO: Return widget somehow??
+      buttons.forEach((key, value) =>
+          new ButtonWidgets().buildRaisedButton(key, value));
       return null;
     }
 
     /// Create and return Widget containing one flat button
     ///   using the appropriate theme from ButtonThemes
     Widget buildFlatButton(String text, Function function){
-      //TODO
-      return null;
+      return new ButtonWidgets().buildFlatButton(text, function);
     }
 
     /// Create and return Widget containing flat buttons
     ///   created using the given map text and functions
     ///   with the appropriate theme from ButtonThemes
     Widget buildFlatButtons(Map<String, Function> buttons){
-      //TODO
+      //TODO: return widget
+      buttons.forEach((key, value) =>
+          new ButtonWidgets().buildFlatButton(key, value));
       return null;
     }
 
@@ -40,7 +42,9 @@ class ButtonBuilder{
     ///   created using the given map text and functions
     ///   with the appropriate theme from ButtonThemes
     Widget buildIconButtons(Map<String, Function> buttons){
-      //TODO
+      //TODO: return widget
+      buttons.forEach((key, value) =>
+          new ButtonWidgets().buildIconButton(key, value));
       return null;
     }
 
