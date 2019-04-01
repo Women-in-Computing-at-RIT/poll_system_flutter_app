@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:poll_system_flutter_app/styles/ButtonThemes.dart';
 import 'package:poll_system_flutter_app/widget_creators/ButtonWidgets.dart';
 
@@ -16,10 +17,26 @@ class ButtonBuilder{
     ///   created using the given map text and functions
     ///   with the appropriate theme from ButtonThemes
     Widget buildRaisedButtons(Map<String, Function> buttons){
-      //TODO: Return widget somehow??
+      List<Widget> lstButtons = new List();
       buttons.forEach((key, value) =>
-          new ButtonWidgets().buildRaisedButton(key, value));
-      return null;
+          lstButtons.add(buildRaisedButton(key, value)));
+      return buildButton(lstButtons);
+    }
+
+    /// Helper function to create and return a column
+    /// of buttons from a list of buttons
+    Builder buildButton(List<Widget> lst){
+      return Builder(
+          builder: (context) => Center(
+              child: Container(
+                  margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  child: ButtonTheme.fromButtonThemeData(
+                      data: _buttonThemes.getButtonTheme().data,
+                      child: new Column(children: lst,)
+                  )
+              )
+          )
+      );
     }
 
     /// Create and return Widget containing one flat button
@@ -32,20 +49,26 @@ class ButtonBuilder{
     ///   created using the given map text and functions
     ///   with the appropriate theme from ButtonThemes
     Widget buildFlatButtons(Map<String, Function> buttons){
-      //TODO: return widget
+      List<Widget> lstButtons = new List();
       buttons.forEach((key, value) =>
-          new ButtonWidgets().buildFlatButton(key, value));
-      return null;
+          lstButtons.add(buildFlatButton(key, value)));
+      return buildButton(lstButtons);
+    }
+
+    /// Create and return Widget containing one Icon button
+    ///   using the appropriate theme from ButtonThemes
+    Widget buildIconButton(String text, Function function){
+      return new ButtonWidgets().buildIconButton(text, function);
     }
 
     /// Create and return Widget containing icon buttons
     ///   created using the given map text and functions
     ///   with the appropriate theme from ButtonThemes
     Widget buildIconButtons(Map<String, Function> buttons){
-      //TODO: return widget
+      List<Widget> lstButtons = new List();
       buttons.forEach((key, value) =>
-          new ButtonWidgets().buildIconButton(key, value));
-      return null;
+          lstButtons.add(buildIconButton(key, value)));
+      return buildButton(lstButtons);
     }
 
 }

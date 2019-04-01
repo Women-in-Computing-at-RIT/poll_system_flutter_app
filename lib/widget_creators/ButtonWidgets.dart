@@ -9,10 +9,9 @@ class ButtonWidgets{
   RaisedButton buildRaisedButton(String text, Function func){
     return new RaisedButton(
         child: Text(text),
-        elevation: 4.0,
-        disabledElevation: 0.0, //elevation of button when pressed
-        onPressed: func, //do something
-         );
+          elevation: 4.0,
+          disabledElevation: 0.0, //elevation of button when pressed
+          onPressed: func); //do something
   }
 
   /// Create a return a FlatButton with the given text and function
