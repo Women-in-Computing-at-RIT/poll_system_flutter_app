@@ -20,15 +20,12 @@ class _AdminPage extends State<AdminPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( // build it all and return it
+    return Scaffold(
         backgroundColor: Colors.white,
-        //appBar:  is a nav widget necessary for the bottom?
         body: Center(
-            child: ExpansionPanelList( //accordion-style, but cant figure it out
-
+            child: getPendingPolls(),
             )
-        )
-    );
+        );
   }
 
   /// Get pending polls as widget from PollWidgets
@@ -38,7 +35,7 @@ class _AdminPage extends State<AdminPage> {
 
   /// Update approval status of poll using pollParser
   void acceptPoll(int, bool) {
-    _pollParser.getPendingPolls().update(int, bool);
+    _pollParser.approvePoll(bool, int);
   }
 
 }

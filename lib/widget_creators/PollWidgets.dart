@@ -8,13 +8,13 @@ class PollWidgets{
 
   /// userid - to create PollParser
   PollWidgets(int userid){
-    //TODO
+    _pollParser = new PollParser(userid);
   }
 
   /// Create a poll the user can vote on
   Widget _buildVoteablePoll(){
-    //TODO
-    return null;
+      //TODO
+      return null;
   }
 
   /// Build a widget containing all the current polls
@@ -34,6 +34,15 @@ class PollWidgets{
   ///   Build each poll as a view only poll
   Widget buildPastPoll(){
     //TODO
+
+
+
+    // notes to self:
+    // contained within card, research expansion panel
+    // work on this one first
+    // get the polls from poll parser and then make seperate
+    // cards for each one all stored as the 'children' inside
+    // this widget
     return null;
   }
 
@@ -44,10 +53,16 @@ class PollWidgets{
     return null;
   }
 
-  /// Build a widget contained all polls owned by the current user
+  /// Build a widget containing all polls owned by the current user
   ///   Build each Poll as a UserPoll
   Widget buildUserPolls(){
-    //TODO
+    new Container(
+      child: Column(
+        children: <Widget>[
+
+        ],
+      )
+    );
     return null;
   }
 
