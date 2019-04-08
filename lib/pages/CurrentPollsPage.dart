@@ -4,15 +4,20 @@ import 'package:poll_system_flutter_app/widget_creators/PollWidgets.dart';
 class CurrentPollsPage extends StatefulWidget{
   PollWidgets _pollWidget;
 
-  CurrentPollsPage({Key key, this.title }) : super(key: key);
+  CurrentPollsPage({Key key, this.title, this.userid }) : super(key: key);
 
   final String title;
+  final int userid;
 
   @override
-  _CurrentPollsPage createState() => _CurrentPollsPage();
+  _CurrentPollsPage createState() => _CurrentPollsPage(userid);
 }
 
 class _CurrentPollsPage extends State<CurrentPollsPage>{
+  PollWidgets _pollWidgets;
+  _CurrentPollsPage(int userid){
+    _pollWidgets = new PollWidgets(userid);
+  }
 
   @override
   Widget build(BuildContext context) {

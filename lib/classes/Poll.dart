@@ -42,8 +42,13 @@ class Poll {
 
   /// Get top option for poll
   PollOption getTopOption(){
-    //TODO
-    return null;
+    int temp = 0;
+    _options.keys.forEach((key) {
+      if (_options[key].getVotes() > 0) {
+        temp = key;
+      }
+    });
+    return _options[temp];
   }
 
   /// Return if users other than owner can add options
@@ -63,8 +68,7 @@ class Poll {
 
   /// Get votes for option with optId
   int getVotesForOption(int optId){
-    //TODO
-    return null;
+    return _options[optId].getVotes();
   }
 
   /// *** Updates *** ///
@@ -77,13 +81,15 @@ class Poll {
   }
 
   /// Add a vote to the list of selected option(s)
-  void placeVote(List<int> options){
-    //TODO
+  void placeVotes(List<int> options){
+    options.forEach((optId){
+      placeVote(optId);
+    });
   }
 
   /// Add vote to single option
-  void placedVote(int option){
-    //TODO
+  void placeVote(int option){
+    _options[option].voteFor();
   }
 
   /// Check that user can add option
