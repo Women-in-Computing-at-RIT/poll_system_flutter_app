@@ -56,13 +56,7 @@ class PollWidgets{
   /// Build a widget containing all polls owned by the current user
   ///   Build each Poll as a UserPoll
   Widget buildUserPolls(){
-    new Container(
-      child: Column(
-        children: <Widget>[
-
-        ],
-      )
-    );
+    //TODO
     return null;
   }
 
