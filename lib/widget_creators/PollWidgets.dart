@@ -16,17 +16,18 @@ class PollWidgets{
 
   /// Create a poll the user can vote on
   ExpansionPanel _buildVoteablePoll(Poll poll){
-    return new ExpansionPanel(
-        headerBuilder: null,
-        body: null
-    );
+    ExpansionPanel panel = new ExpansionPanel();
   }
 
   /// Build a widget containing all the current polls
   ///   Build each separate poll as a voteable poll
   Widget buildCurrentPolls(){
-    //TODO
-    return null;
+    ExpansionPanelList lst = new ExpansionPanelList(); //create empty epl
+    Map<int, Poll>  polls= _pollParser.getCurrentPolls(); //store poll map
+    polls.forEach((key, value) =>
+    // for each poll in polls, add to epl
+    lst.children.add(_buildVoteablePoll(value)));
+    return lst;
   }
 
   /// Create a view only poll with the options sorted based on votes
@@ -38,8 +39,11 @@ class PollWidgets{
   /// Build a widget containing all the past polls
   ///   Build each poll as a view only poll
   Widget buildPastPoll(){
-    //TODO will return an ExpansionPanelList
-    return null;
+    ExpansionPanelList lst = new ExpansionPanelList();
+    Map<int, Poll>  polls= _pollParser.getPastPolls();
+    polls.forEach((key, value) =>
+        lst.children.add(_buildViewOnlyPoll(value)));
+    return lst;
   }
 
   /// Build an editable poll
@@ -52,8 +56,11 @@ class PollWidgets{
   /// Build a widget containing all polls owned by the current user
   ///   Build each Poll as a UserPoll
   Widget buildUserPolls(){
-    //TODO
-    return null;
+    ExpansionPanelList lst = new ExpansionPanelList();
+    Map<int, Poll>  polls= _pollParser.getUserPolls();
+    polls.forEach((key, value) =>
+    lst.children.add(_buildUserPoll(value)));
+    return lst;
   }
 
   /// Create a poll for an admin to approve or reject
@@ -65,7 +72,10 @@ class PollWidgets{
   /// Build a widget containing all polls pending approval
   ///   Build each poll as a PendingPoll
   Widget buildPendingPolls(){
-    //TODO
-    return null;
+    ExpansionPanelList lst = new ExpansionPanelList();
+    Map<int, Poll>  polls= _pollParser.getPendingPolls();
+    polls.forEach((key, value) =>
+    lst.children.add(_buildPendingPoll(value)));
+    return lst;
   }
 }
