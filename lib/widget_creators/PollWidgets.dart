@@ -1,20 +1,25 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:poll_system_flutter_app/classes/Poll.dart';
 import 'package:poll_system_flutter_app/classes/PollParser.dart';
 import 'package:poll_system_flutter_app/styles/PollColorScheme.dart';
 
 class PollWidgets{
   PollParser _pollParser;
-  PollColorScheme _colorScheme = new PollColorScheme();
+  PollColorScheme _colorScheme;
 
   /// userid - to create PollParser
   PollWidgets(int userid){
     _pollParser = new PollParser(userid);
+    _colorScheme = new PollColorScheme();
   }
 
   /// Create a poll the user can vote on
-  Widget _buildVoteablePoll(){
-      //TODO
-      return null;
+  ExpansionPanel _buildVoteablePoll(Poll poll){
+    return new ExpansionPanel(
+        headerBuilder: null,
+        body: null
+    );
   }
 
   /// Build a widget containing all the current polls
@@ -25,7 +30,7 @@ class PollWidgets{
   }
 
   /// Create a view only poll with the options sorted based on votes
-  Widget _buildViewOnlyPoll(){
+  ExpansionPanel _buildViewOnlyPoll(Poll poll){
     //TODO
     return null;
   }
@@ -33,22 +38,13 @@ class PollWidgets{
   /// Build a widget containing all the past polls
   ///   Build each poll as a view only poll
   Widget buildPastPoll(){
-    //TODO
-
-
-
-    // notes to self:
-    // contained within card, research expansion panel
-    // work on this one first
-    // get the polls from poll parser and then make seperate
-    // cards for each one all stored as the 'children' inside
-    // this widget
+    //TODO will return an ExpansionPanelList
     return null;
   }
 
   /// Build an editable poll
   ///   Editable has an option to edit and send user to new page to edit
-  Widget _buildUserPoll(){
+  ExpansionPanel _buildUserPoll(Poll poll){
     //TODO
     return null;
   }
@@ -61,7 +57,7 @@ class PollWidgets{
   }
 
   /// Create a poll for an admin to approve or reject
-  Widget _buildPendingPoll(){
+  ExpansionPanel _buildPendingPoll(Poll poll){
     //TODO
     return null;
   }
