@@ -4,6 +4,7 @@ import 'package:poll_system_flutter_app/pages/AdminPage.dart';
 import 'package:poll_system_flutter_app/pages/CreatePollPage.dart';
 import 'package:poll_system_flutter_app/pages/CurrentPollsPage.dart';
 import 'package:poll_system_flutter_app/pages/PastPollsPage.dart';
+import 'package:poll_system_flutter_app/widget_creators/ButtonBuilder.dart';
 import 'package:poll_system_flutter_app/widget_creators/ButtonWidgets.dart';
 
 class NavigationWidget{
@@ -13,18 +14,27 @@ class NavigationWidget{
   User _user;
 
   NavigationWidget(User user){
-    //TODO
+    _user = user;
   }
 
   /// Return _navBar
-  ButtonBar getNavBar(){
-    return _buildNavBar();
+  ButtonBar getNavBar(BuildContext context){
+    return _buildNavBar(context);
   }
 
   /// Create and return a navigation ButtonBar based on _userIsAdmin
-  ButtonBar _buildNavBar(){
+  ButtonBar _buildNavBar(BuildContext context){
     //TODO
-    return null;
+
+    ButtonBuilder bb = new ButtonBuilder();
+    return new ButtonBar(
+      children: <Widget>[
+        bb.buildIconButton("lib/media/poll.svg", (){_sendToCurrentPollsPage(context);}),
+        bb.buildIconButton("P", (){_sendToPastPollsPage(context);}),
+        bb.buildIconButton("M", (){_sendToUserPollsPage(context);}),
+        bb.buildIconButton("A", (){_sendToAdminPage(context);})
+      ],
+    );
   }
 
   /// Send user to Current Polls Page

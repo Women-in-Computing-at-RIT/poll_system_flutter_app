@@ -35,7 +35,7 @@ class _CurrentPollsPage extends State<CurrentPollsPage>{
         child: Column(
           children: <Widget>[
             Text("Current Polls Page, TODO, User is " + _user.getName()),
-            _nav.getNavBar()
+            _nav.getNavBar(context)
           ],
         ),
       ),

@@ -25,9 +25,11 @@ class ButtonWidgets{
   /// Create a return a IconButton with the given text and function
   ///   using the appropriate theme from ButtonThemes
   IconButton buildIconButton(String text, Function func){
+    print("&&&&&&&&&&&&&&&&&&&&&&&&");
     return new IconButton(
-        icon: Icon(Icons.check, semanticLabel: text),
-        onPressed: func);
+        icon: Image.asset(text),//Icon(Icons.check, semanticLabel: text),
+        onPressed: func
+    );
   }
 
   /// Create a return a ButtonBar with the given list of icon buttons
