@@ -16,10 +16,7 @@ class PollWidgets{
 
   /// Create a poll the user can vote on
   ExpansionPanel _buildVoteablePoll(Poll poll){
-    return new ExpansionPanel(
-        headerBuilder: null,
-        body: null
-    );
+    ExpansionPanel panel = new ExpansionPanel();
   }
 
   /// Build a widget containing all the current polls
