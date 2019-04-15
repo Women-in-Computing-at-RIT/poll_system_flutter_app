@@ -19,7 +19,15 @@ class ApiAccess {
   ///   return first Map from resulting List<Map<String, dynamic>>
   Map<String, dynamic> login(String username, String password){
     //TODO
-    return null;
+    var user = Map<String, dynamic>();
+    user['username'] = username;
+    user['id'] = 5;
+    if(username == 'admin'){
+      user['isAdmin'] = true;
+    } else {
+      user['isAdmin'] = false;
+    }
+    return user;
   }
 
   /// Call api to get all approved polls

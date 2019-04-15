@@ -23,9 +23,10 @@ class _LoginPage extends State<LoginPage>{
   /// Attempt Login with LoginHandler
   ///   If login is successful send to home page (CurrentPollsPage)
   void login(){
+    //Login User
     LoginHandler loginHandler = new LoginHandler();
-    loginHandler.login(_username, _password);
-    //TODO attempt login with login handler
+    var _user = loginHandler.login(_username, _password);
+
   }
 
   /// Build widgets for user to login
@@ -39,7 +40,7 @@ class _LoginPage extends State<LoginPage>{
 
     final password = inputWidgets.buildTextInput("Password", true);
 
-    final login = buttonBuilder.buildRaisedButton("Login", (){
+    final loginBtn = buttonBuilder.buildRaisedButton("Login", (){
       LoginHandler loginHandler = new LoginHandler();
       loginHandler.login(_username, _password);
     });
@@ -51,7 +52,14 @@ class _LoginPage extends State<LoginPage>{
     return Scaffold( // build it all and return it
       backgroundColor: Colors.white,
       body: Center(
-        child: Column(
+        child: ListView(
+          padding: EdgeInsets.only(
+            bottom: 20,
+            top: 20,
+            left: 10,
+            right: 10
+          ),
+          shrinkWrap: true,
           children: <Widget>[
             image,
             SizedBox(height: 2.0), // ignore these heights for now
@@ -59,6 +67,7 @@ class _LoginPage extends State<LoginPage>{
             SizedBox(height: 8.0), // i really dont know what
             password,
             SizedBox(height: 24.0), // it looks like :),
+            loginBtn,
             hint,
             SizedBox(height: 2.0)
           ],
