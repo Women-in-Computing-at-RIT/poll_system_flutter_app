@@ -33,9 +33,7 @@ class _LoginPage extends State<LoginPage>{
   @override
   Widget build(BuildContext context) {
 
-    final icon = Image.asset('../media/WicHi_purple_transparent.png');
-
-    final image = Image.asset('../media/WicHi_purple_transparent.png');
+    final image = Image.asset('lib/media/WicHi_purple_transparent.png');
 
     final email = inputWidgets.buildTextInput("Username", false);
 
