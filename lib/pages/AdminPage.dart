@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:poll_system_flutter_app/classes/PollParser.dart';
+import 'package:poll_system_flutter_app/classes/User.dart';
 import 'package:poll_system_flutter_app/widget_creators/PollWidgets.dart';
 
 class AdminPage extends StatefulWidget {
   //PollParser _pollParser;
   //PollWidgets _pollWidget;
 
-  AdminPage({Key key, this.title}) : super(key: key);
+  AdminPage({Key key, this.title, this.user}) : super(key: key);
 
   final String title;
+  final User user;
 
   @override
   _AdminPage createState() => _AdminPage();
