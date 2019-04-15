@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:poll_system_flutter_app/classes/PollParser.dart';
+import 'package:poll_system_flutter_app/classes/User.dart';
 
 class CreatePollPage extends StatefulWidget {
   PollParser _pollParser;
 
-  CreatePollPage({Key key, this.title}) : super(key: key);
+  CreatePollPage({Key key, this.title, this.user}) : super(key: key);
 
   final String title;
+  final User user;
 
   @override
   _CreatePollPage createState() => _CreatePollPage();
