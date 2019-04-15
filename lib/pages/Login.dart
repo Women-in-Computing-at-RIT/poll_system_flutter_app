@@ -35,12 +35,16 @@ class _LoginPage extends State<LoginPage>{
 
     final icon = Image.asset('../media/WicHi_purple_transparent.png');
 
+    final image = Image.asset('../media/WicHi_purple_transparent.png');
+
     final email = inputWidgets.buildTextInput("Username", false);
 
     final password = inputWidgets.buildTextInput("Password", true);
 
-    //TODO pass in login function
-    final login = buttonBuilder.buildRaisedButton("Login", null);
+    final login = buttonBuilder.buildRaisedButton("Login", (){
+      LoginHandler loginHandler = new LoginHandler();
+      loginHandler.login(_username, _password);
+    });
 
     final hint = Text(
       'To create an account you must go through ritwic.slack.com',
@@ -49,9 +53,9 @@ class _LoginPage extends State<LoginPage>{
     return Scaffold( // build it all and return it
       backgroundColor: Colors.white,
       body: Center(
-        child: ListView(
+        child: Column(
           children: <Widget>[
-            icon,
+            image,
             SizedBox(height: 2.0), // ignore these heights for now
             email,
             SizedBox(height: 8.0), // i really dont know what
