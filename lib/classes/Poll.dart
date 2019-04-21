@@ -40,12 +40,24 @@ class Poll {
     return _options;
   }
 
+  /// Get the Id of the poll
+  int getId(){
+    return _id;
+  }
+
+  /// Get Map of user ids and the option(s) they have voted for
+  Map<int, List<int>> getVoteList(){
+    return _votes;
+  }
+
   /// Get top option for poll
   PollOption getTopOption(){
     int temp = 0;
     _options.keys.forEach((key) {
       if (_options[key].getVotes() > 0) {
-        temp = key;
+        if (_options[key].getVotes() > _options[temp].getVotes()) {
+          temp = key;
+        }
       }
     });
     return _options[temp];
@@ -97,11 +109,9 @@ class Poll {
   bool addOption(String option){
     if (canAddOption()) {
       var currOptions = getOptions();
-      if (!currOptions.containsKey(option)) {
-//        currOptions[option] = 0;
+//      currOptions.addAll(PollOption.withText(getId(), 0, option));
         return true;
       }
-    }
     return false;
   }
 }
