@@ -40,6 +40,15 @@ class Poll {
     return _options;
   }
 
+  /// Get List of Options sorted by number of votes
+  ///     sorted highest to lowest
+  List<PollOption> getSortedListOfOptions(){
+    List<PollOption> _temp = _options.values.toList();
+    _temp.sort((a, b) => b.getVotes().compareTo(a.getVotes()));
+
+    return _temp;
+  }
+
   /// Get top option for poll
   PollOption getTopOption(){
     int temp = 0;
@@ -104,4 +113,6 @@ class Poll {
     }
     return false;
   }
+
+
 }
