@@ -95,8 +95,8 @@ class PollParser{
   }
 
   /// Call the api to create a new pending poll
-  void createPoll(String name, String description, bool canAddOption, bool multplieAllowed, List<String> options){
-    _api.createPoll(name, description, canAddOption, multplieAllowed, options);
+  void createPoll(String name, String description, bool canAddOption, bool multipleAllowed, List<String> options){
+    _api.createPoll(name, description, canAddOption, multipleAllowed, options);
   }
 
 
