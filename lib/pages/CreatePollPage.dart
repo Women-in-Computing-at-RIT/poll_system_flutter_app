@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:poll_system_flutter_app/classes/Poll.dart';
 import 'package:poll_system_flutter_app/classes/PollParser.dart';
 import 'package:poll_system_flutter_app/classes/User.dart';
 
 class CreatePollPage extends StatefulWidget {
   PollParser _pollParser;
 
-  CreatePollPage({Key key, this.title, this.user}) : super(key: key);
+  CreatePollPage({Key key, this.title, this.user, this.poll = null}) : super(key: key);
 
   final String title;
   final User user;
+  Poll poll;
 
   @override
-  _CreatePollPage createState() => _CreatePollPage();
+  _CreatePollPage createState() => _CreatePollPage(user, poll);
 }
 
 class _CreatePollPage extends State<CreatePollPage> {
+
+  _CreatePollPage(User user, Poll poll){
+    //TODO
+  }
 
   @override
   Widget build(BuildContext context) {

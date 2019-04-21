@@ -28,8 +28,26 @@ class NavigationWidget{
     //TODO
 
     ButtonBuilder bb = new ButtonBuilder();
+/*
+    DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
+              bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
+              bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
+              bb.buildFlatButton("Admin", (){ _sendToAdminPage(context); })
+            ],
+          ),
+        ),
+      ),
+    );*/
+
     if (_user.isAdmin()) {
       return new TabBar (
+        controller: TabController(length: 4),
         tabs: <Widget>[
           bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
           bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
@@ -39,6 +57,7 @@ class NavigationWidget{
       );
     } else {
       return new TabBar (
+        controller: TabController(length: 4),
         tabs: <Widget>[
           bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
           bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
