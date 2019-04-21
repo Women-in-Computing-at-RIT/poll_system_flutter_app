@@ -19,18 +19,18 @@ class NavigationWidget{
   }
 
   /// Return _navBar
-  ButtonBar getNavBar(BuildContext context){
+  TabBar getNavBar(BuildContext context){
     return _buildNavBar(context);
   }
 
   /// Create and return a navigation ButtonBar based on _userIsAdmin
-  ButtonBar _buildNavBar(BuildContext context){
+  TabBar _buildNavBar(BuildContext context){
     //TODO
 
     ButtonBuilder bb = new ButtonBuilder();
     if (_user.isAdmin()) {
-      return new ButtonBar(
-        children: <Widget>[
+      return new TabBar (
+        tabs: <Widget>[
           bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
           bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
           bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
@@ -38,11 +38,11 @@ class NavigationWidget{
         ],
       );
     } else {
-      return new ButtonBar(
-        children: <Widget>[
+      return new TabBar (
+        tabs: <Widget>[
           bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
           bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
-          bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); })
+          bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
         ],
       );
     }

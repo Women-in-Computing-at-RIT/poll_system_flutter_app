@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:poll_system_flutter_app/classes/User.dart';
+import 'package:poll_system_flutter_app/widget_creators/NavigationWidget.dart';
 import 'package:poll_system_flutter_app/widget_creators/PollWidgets.dart';
 
 class PastPollsPage extends StatefulWidget{
-  PollWidgets _pollWidget;
-
   PastPollsPage({Key key, this.title, this.user}) : super(key: key);
 
   final String title;
@@ -16,22 +15,24 @@ class PastPollsPage extends StatefulWidget{
 
 class _PastPollsPage extends State<PastPollsPage>{
   PollWidgets _pollWidget;
+  NavigationWidget _nav;
   User _user;
   _PastPollsPage(User user) {
     _user = user;
     _pollWidget = new PollWidgets(user.getId());
+    _nav = new NavigationWidget(_user);
   }
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) => Center(
-          child: new Column(
-            children: <Widget>[
-              _pollWidget.buildPastPoll()
-            ],
-          ),
-      )
-    // Create inputs to take in username/email and password
+    return Scaffold(
+      body: Center(
+        child: new Column(
+          children: <Widget>[
+            _pollWidget.buildPastPoll(),
+            _nav.getNavBar(context)
+          ],
+        )
+      ),
     );
   }
 

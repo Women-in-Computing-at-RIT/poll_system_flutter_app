@@ -29,13 +29,15 @@ class _CurrentPollsPage extends State<CurrentPollsPage>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    // Create inputs to take in username/email and password
     return Scaffold(
+      appBar: AppBar(
+        bottom: _nav.getNavBar(context),
+      ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Text("Current Polls Page, TODO, User is " + _user.getName()),
-            _nav.getNavBar(context)
+            _pollWidgets.buildCurrentPolls(),
           ],
         ),
       ),
