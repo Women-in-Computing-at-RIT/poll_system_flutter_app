@@ -21,7 +21,11 @@ class PollParser{
   /// Generic Function to parse objects from a List<Map<String, dynamic>
   ///   into a Poll and return as a Map<int, Poll>
   Map<int, Poll> _parsePolls(List<Map<String, dynamic>> rawPolls){
-    return new Map.fromIterable(rawPolls, key: (v) => v[0], value: (v) => v[1]);
+    if (rawPolls == null){
+      return new Map();
+    } else {
+      return new Map.fromIterable(rawPolls, key: (v) => v[0], value: (v) => v[1]);
+    }
   }
 
   /// Call parser on raw current polls received from api

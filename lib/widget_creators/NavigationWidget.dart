@@ -27,14 +27,24 @@ class NavigationWidget{
     //TODO
 
     ButtonBuilder bb = new ButtonBuilder();
-    return new ButtonBar(
-      children: <Widget>[
-        bb.buildIconButton("lib/media/poll.svg", (){_sendToCurrentPollsPage(context);}),
-        bb.buildIconButton("P", (){_sendToPastPollsPage(context);}),
-        bb.buildIconButton("M", (){_sendToUserPollsPage(context);}),
-        bb.buildIconButton("A", (){_sendToAdminPage(context);})
-      ],
-    );
+    if (_user.isAdmin()) {
+      return new ButtonBar(
+        children: <Widget>[
+          bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
+          bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
+          bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
+          bb.buildFlatButton("Admin", (){ _sendToAdminPage(context); })
+        ],
+      );
+    } else {
+      return new ButtonBar(
+        children: <Widget>[
+          bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
+          bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
+          bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); })
+        ],
+      );
+    }
   }
 
   /// Send user to Current Polls Page

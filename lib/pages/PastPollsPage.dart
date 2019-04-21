@@ -27,7 +27,6 @@ class _PastPollsPage extends State<PastPollsPage>{
       builder: (context) => Center(
           child: new Column(
             children: <Widget>[
-              Title(color: null, child: Text("Past Polls")),
               _pollWidget.buildPastPoll()
             ],
           ),
