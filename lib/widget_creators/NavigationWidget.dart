@@ -12,6 +12,12 @@ class NavigationWidget{
   ButtonWidgets _buttonWidgets = new ButtonWidgets();
   ButtonBar _navBar;
 
+  final int CURRENT = 0;
+  final int PAST = 1;
+  final int USERS = 2;
+  final int CREATE = 3;
+  final int ADMIN = 4;
+
   User _user;
 
   NavigationWidget(User user){
@@ -19,35 +25,18 @@ class NavigationWidget{
   }
 
   /// Return _navBar
-  TabBar getNavBar(BuildContext context){
-    return _buildNavBar(context);
+  ButtonBar getNavBar(BuildContext context, TickerProvider t, int selected){
+    return _buildNavBar(context, t, selected);
   }
 
   /// Create and return a navigation ButtonBar based on _userIsAdmin
-  TabBar _buildNavBar(BuildContext context){
+  ButtonBar _buildNavBar(BuildContext context, TickerProvider t, int selected){
     //TODO
 
     ButtonBuilder bb = new ButtonBuilder();
-/*
-    DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
-              bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
-              bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
-              bb.buildFlatButton("Admin", (){ _sendToAdminPage(context); })
-            ],
-          ),
-        ),
-      ),
-    );*/
-
-    if (_user.isAdmin()) {
+    /*if (_user.isAdmin()) {
       return new TabBar (
-        controller: TabController(length: 4),
+        controller: TabController(length: 4, vsync: t, initialIndex: selected),
         tabs: <Widget>[
           bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
           bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
@@ -57,12 +46,31 @@ class NavigationWidget{
       );
     } else {
       return new TabBar (
-        controller: TabController(length: 4),
+        controller: TabController(length: 4, vsync: t, initialIndex: selected),
         tabs: <Widget>[
           bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
           bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
           bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
         ],
+      );
+    }*/
+
+    if (_user.isAdmin()) {
+      return new ButtonBar (
+        children: <Widget>[
+          bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
+          bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
+          bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
+          bb.buildFlatButton("Admin", (){ _sendToAdminPage(context); })
+        ]
+      );
+    } else {
+      return new ButtonBar (
+          children: <Widget>[
+            bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
+            bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
+            bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); })
+          ]
       );
     }
   }

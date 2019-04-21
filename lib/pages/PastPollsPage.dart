@@ -13,7 +13,7 @@ class PastPollsPage extends StatefulWidget{
   _PastPollsPage createState() => _PastPollsPage(user);
 }
 
-class _PastPollsPage extends State<PastPollsPage>{
+class _PastPollsPage extends State<PastPollsPage> with TickerProviderStateMixin{
   PollWidgets _pollWidget;
   NavigationWidget _nav;
   User _user;
@@ -25,11 +25,14 @@ class _PastPollsPage extends State<PastPollsPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: _nav.getNavBar(context, this, _nav.PAST),
+      appBar: AppBar(
+        title: Text("Polling App"),
+      ),
       body: Center(
         child: new Column(
           children: <Widget>[
             _pollWidget.buildPastPoll(),
-            _nav.getNavBar(context)
           ],
         )
       ),

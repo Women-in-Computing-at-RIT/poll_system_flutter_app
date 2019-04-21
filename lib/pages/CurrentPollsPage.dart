@@ -15,7 +15,7 @@ class CurrentPollsPage extends StatefulWidget{
   _CurrentPollsPage createState() => _CurrentPollsPage(user);
 }
 
-class _CurrentPollsPage extends State<CurrentPollsPage>{
+class _CurrentPollsPage extends State<CurrentPollsPage> with TickerProviderStateMixin{
   PollWidgets _pollWidgets;
   NavigationWidget _nav;
   User _user;
@@ -30,8 +30,9 @@ class _CurrentPollsPage extends State<CurrentPollsPage>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      bottomNavigationBar: _nav.getNavBar(context, this, _nav.CURRENT),
       appBar: AppBar(
-        bottom: _nav.getNavBar(context),
+        title: Text("Polling App"),
       ),
       body: Center(
         child: Column(

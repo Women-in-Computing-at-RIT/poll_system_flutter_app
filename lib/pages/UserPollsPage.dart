@@ -13,7 +13,7 @@ class UserPollsPage extends StatefulWidget{
   _UserPollsPage createState() => _UserPollsPage(user);
 }
 
-class _UserPollsPage extends State<UserPollsPage>{
+class _UserPollsPage extends State<UserPollsPage> with TickerProviderStateMixin{
   PollWidgets _pollWidget;
   NavigationWidget _nav;
   User _user;
@@ -25,11 +25,14 @@ class _UserPollsPage extends State<UserPollsPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: _nav.getNavBar(context, this, _nav.USERS),
+      appBar: AppBar(
+        title: Text("User App"),
+      ),
       body: Center(
           child: new Column(
             children: <Widget>[
               _pollWidget.buildUserPolls(),
-              _nav.getNavBar(context)
             ],
           )
       ),
