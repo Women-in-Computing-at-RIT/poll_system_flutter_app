@@ -79,23 +79,28 @@ class PollWidgets{
   }
 
   /// Create a poll the user can vote on
-  ExpansionPanel _buildVoteablePoll(Poll poll){
+  PollExpansionPanel _buildVoteablePoll(Poll poll){
     //TODO
-    ExpansionPanel panel = new ExpansionPanel();
+    List<Widget> lst = new List();
+    poll.getSortedListOfOptions().forEach((value)=>
+        lst.add(Text(value.getText())));
+    return new PollExpansionPanel(bodyBuilder: (context) => Column(
+      children: lst,),
+        title: poll.getName(),
+        subtitle: poll.getTopOption().getText());
   }
 
   /// Build a widget containing all the current polls
   ///   Build each separate poll as a voteable poll
   Widget buildCurrentPolls(){
-    ExpansionPanelList lst = new ExpansionPanelList(); //create empty epl
+    List<PollExpansionPanel> lst = new List(); //create empty list
     Map<int, Poll>  polls = _pollParser.getCurrentPolls(); //store poll map
 
     if ( polls != null ) {
-      polls.forEach((key, value) => // for each poll in polls, add to epl
-      lst.children.add(_buildVoteablePoll(value)));
+      polls.forEach((key, value) => // for each poll in polls, add to lst
+      lst.add(_buildVoteablePoll(value)));
     }
-    
-    return lst;
+    return ExpansionList(lst);
   }
 
   /// Create a view only poll with the options sorted based on votes
@@ -182,14 +187,12 @@ class PollWidgets{
   /// Build a widget containing all polls pending approval
   ///   Build each poll as a PendingPoll
   Widget buildPendingPolls(){
-    ExpansionPanelList lst = new ExpansionPanelList();
     Map<int, Poll>  polls = _pollParser.getPendingPolls();
-
+    List<PollExpansionPanel> lst = new List();
     if ( polls != null ) {
       polls.forEach((key, value) =>
-          lst.children.add(_buildPendingPoll(value)));
+          lst.add(_buildPendingPoll(value)));
     }
-
-    return lst;
+    return new ExpansionList(lst);
   }
 }
