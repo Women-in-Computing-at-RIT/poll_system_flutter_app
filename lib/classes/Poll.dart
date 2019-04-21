@@ -6,6 +6,7 @@ import 'PollOption.dart';
 class Poll {
   String _name; //poll name
   int _id; //poll id
+  String _description;
   String _owner; //owner of the poll
   bool _canAddOptions;
   bool _isMultipleSelect;
@@ -57,6 +58,11 @@ class Poll {
   /// Get Map of user ids and the option(s) they have voted for
   Map<int, List<int>> getVoteList(){
     return _votes;
+  }
+
+  /// Get Description
+  String getDescription(){
+    return _description;
   }
 
   /// Get top option for poll
