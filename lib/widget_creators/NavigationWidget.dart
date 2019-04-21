@@ -4,6 +4,7 @@ import 'package:poll_system_flutter_app/pages/AdminPage.dart';
 import 'package:poll_system_flutter_app/pages/CreatePollPage.dart';
 import 'package:poll_system_flutter_app/pages/CurrentPollsPage.dart';
 import 'package:poll_system_flutter_app/pages/PastPollsPage.dart';
+import 'package:poll_system_flutter_app/pages/UserPollsPage.dart';
 import 'package:poll_system_flutter_app/widget_creators/ButtonBuilder.dart';
 import 'package:poll_system_flutter_app/widget_creators/ButtonWidgets.dart';
 
@@ -73,7 +74,7 @@ class NavigationWidget{
   void _sendToUserPollsPage(BuildContext context){
     Navigator.push(context, MaterialPageRoute(
         builder: (context) =>
-        new PastPollsPage(
+        new UserPollsPage(
             title: "My Polls",
             user: _user
         )
