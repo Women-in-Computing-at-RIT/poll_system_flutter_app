@@ -6,6 +6,7 @@ import 'package:poll_system_flutter_app/classes/User.dart';
 import 'package:poll_system_flutter_app/pages/CreatePollPage.dart';
 import 'package:poll_system_flutter_app/styles/PollColorScheme.dart';
 import 'package:poll_system_flutter_app/widget_creators/ButtonBuilder.dart';
+import 'package:poll_system_flutter_app/widget_creators/InputWidgets.dart';
 
 class PollExpansionPanel {
   final WidgetBuilder bodyBuilder;
@@ -80,14 +81,33 @@ class PollWidgets{
 
   /// Create a poll the user can vote on
   PollExpansionPanel _buildVoteablePoll(Poll poll){
-    //TODO
     List<Widget> lst = new List();
     poll.getSortedListOfOptions().forEach((value)=>
         lst.add(Text(value.getText())));
-    return new PollExpansionPanel(bodyBuilder: (context) => Column(
-      children: lst,),
-        title: poll.getName(),
-        subtitle: poll.getTopOption().getText());
+
+    if(poll.isMultipleSelect()){
+      Widget check = new InputWidgets().buildListOfCheckboxes(lst);
+      return new PollExpansionPanel(bodyBuilder: (context) =>
+          Column(
+            children: <Widget>[check,
+            ButtonBuilder().buildFlatButton("Vote", () {
+            /*TODO */
+            })],
+          ),
+          title: poll.getName(),
+          subtitle: poll.getTopOption().getText());
+    } else {
+      Widget radio = new InputWidgets().buildListOfRadios(lst);
+      return new PollExpansionPanel(bodyBuilder: (context) =>
+          Column(
+            children: <Widget>[radio,
+            ButtonBuilder().buildFlatButton("Vote", () {
+              /*TODO: Add function call */
+            })
+            ],),
+          title: poll.getName(),
+          subtitle: poll.getTopOption().getText());
+    }
   }
 
   /// Build a widget containing all the current polls
