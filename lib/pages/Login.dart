@@ -37,7 +37,7 @@ class _LoginPage extends State<LoginPage>{
           )
       );
     } else {
-      Navigator.push(context, MaterialPageRoute(
+      Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (context) =>
             new CurrentPollsPage(
               title: "Current Polls",
