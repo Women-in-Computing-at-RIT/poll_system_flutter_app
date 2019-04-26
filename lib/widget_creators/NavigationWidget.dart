@@ -77,7 +77,7 @@ class NavigationWidget{
 
   /// Send user to Current Polls Page
   void _sendToCurrentPollsPage(BuildContext context){
-    Navigator.push(context, MaterialPageRoute(
+    Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) =>
         new CurrentPollsPage(
             title: "Current Polls",
@@ -88,7 +88,7 @@ class NavigationWidget{
 
   /// Send user to Past Polls Page
   void _sendToPastPollsPage(BuildContext context){
-    Navigator.push(context, MaterialPageRoute(
+    Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) =>
         new PastPollsPage(
             title: "Past Polls",
@@ -99,7 +99,7 @@ class NavigationWidget{
 
   /// Send user to User Polls Page
   void _sendToUserPollsPage(BuildContext context){
-    Navigator.push(context, MaterialPageRoute(
+    Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) =>
         new UserPollsPage(
             title: "My Polls",
@@ -121,7 +121,7 @@ class NavigationWidget{
 
   /// Send user to Admin Page
   void _sendToAdminPage(BuildContext context){
-    Navigator.push(context, MaterialPageRoute(
+    Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) =>
         new AdminPage(
             title: "Admin",
