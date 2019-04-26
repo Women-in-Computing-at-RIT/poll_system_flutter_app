@@ -25,7 +25,7 @@ class _PastPollsPage extends State<PastPollsPage> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _nav.getNavBar(context, this, _nav.PAST),
+      bottomNavigationBar: _nav.getNavBar(context, _nav.PAST),
       appBar: AppBar(
         title: Text("Polling App"),
       ),

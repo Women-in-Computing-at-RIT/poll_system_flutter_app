@@ -25,7 +25,7 @@ class _UserPollsPage extends State<UserPollsPage> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _nav.getNavBar(context, this, _nav.USERS),
+      bottomNavigationBar: _nav.getNavBar(context, _nav.USERS),
       appBar: AppBar(
         title: Text("User App"),
       ),

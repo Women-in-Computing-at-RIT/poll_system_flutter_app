@@ -30,7 +30,7 @@ class _CurrentPollsPage extends State<CurrentPollsPage> with TickerProviderState
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      bottomNavigationBar: _nav.getNavBar(context, this, _nav.CURRENT),
+      bottomNavigationBar: _nav.getNavBar(context, _nav.CURRENT),
       appBar: AppBar(
         title: Text("Polling App"),
       ),

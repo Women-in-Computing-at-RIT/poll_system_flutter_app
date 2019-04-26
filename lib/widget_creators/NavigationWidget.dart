@@ -19,58 +19,41 @@ class NavigationWidget{
   final int ADMIN = 4;
 
   User _user;
+  BuildContext _context;
 
   NavigationWidget(User user){
     _user = user;
   }
 
   /// Return _navBar
-  ButtonBar getNavBar(BuildContext context, TickerProvider t, int selected){
-    return _buildNavBar(context, t, selected);
+  BottomNavigationBar getNavBar(BuildContext context, int selected){
+    return _buildNavBar(context, selected);
   }
 
   /// Create and return a navigation ButtonBar based on _userIsAdmin
-  ButtonBar _buildNavBar(BuildContext context, TickerProvider t, int selected){
-    //TODO
-
-    ButtonBuilder bb = new ButtonBuilder();
-    /*if (_user.isAdmin()) {
-      return new TabBar (
-        controller: TabController(length: 4, vsync: t, initialIndex: selected),
-        tabs: <Widget>[
-          bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
-          bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
-          bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
-          bb.buildFlatButton("Admin", (){ _sendToAdminPage(context); })
-        ],
-      );
-    } else {
-      return new TabBar (
-        controller: TabController(length: 4, vsync: t, initialIndex: selected),
-        tabs: <Widget>[
-          bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
-          bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
-          bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
-        ],
-      );
-    }*/
+  BottomNavigationBar _buildNavBar(BuildContext context, int selected){
+    _context = context;
 
     if (_user.isAdmin()) {
-      return new ButtonBar (
-        children: <Widget>[
-          bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
-          bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
-          bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); }),
-          bb.buildFlatButton("Admin", (){ _sendToAdminPage(context); })
-        ]
+      return BottomNavigationBar(items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Polls')),
+        BottomNavigationBarItem(icon: Icon(Icons.arrow_back), title: Text('Past Polls')),
+        BottomNavigationBarItem(icon: Icon(Icons.person_outline), title: Text('My Polls')),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), title: Text('Admin')),
+      ],
+        currentIndex: selected,
+        fixedColor: Colors.deepPurple,
+        onTap: _onItemTapped,
       );
     } else {
-      return new ButtonBar (
-          children: <Widget>[
-            bb.buildFlatButton("Polls", () { _sendToCurrentPollsPage(context); }),
-            bb.buildFlatButton("Past", (){ _sendToPastPollsPage(context); }),
-            bb.buildFlatButton("My Polls", (){ _sendToUserPollsPage(context); })
-          ]
+      return BottomNavigationBar(items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Polls')),
+        BottomNavigationBarItem(icon: Icon(Icons.arrow_back), title: Text('Past Polls')),
+        BottomNavigationBarItem(icon: Icon(Icons.person_outline), title: Text('My Polls')),
+      ],
+        currentIndex: selected,
+        fixedColor: Colors.deepPurple,
+        onTap: _onItemTapped,
       );
     }
   }
@@ -130,4 +113,19 @@ class NavigationWidget{
     ));
   }
 
+
+  void _onItemTapped(int value) {
+    if(value == CURRENT){
+      _sendToCurrentPollsPage(_context);
+    }
+    else if(value == PAST){
+      _sendToPastPollsPage(_context);
+    }
+    else if(value == USERS){
+      _sendToUserPollsPage(_context);
+    }
+    else if(value == ADMIN){
+      _sendToAdminPage(_context);
+    }
+  }
 }
